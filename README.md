@@ -24,7 +24,7 @@ A simple web application built with **Flask**, **MySQL**, and **Chart.js** to tr
 
 1. **Clone the repository:**
 
-git clone https://github.com/your-username/personal-expense-tracker.git
+git clone https://github.com/your-username/personal-expense-tracker.git](https://github.com/CodeWithAnji/expense-tracker-Flask.git
 
 2. **Create a virtual environment and activate it:**
 
