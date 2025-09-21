@@ -29,9 +29,9 @@ git clone https://github.com/your-username/personal-expense-tracker.git](https:/
 2. **Create a virtual environment and activate it:**
 
 python -m venv venv
-# Windows
+**Windows**
 venv\Scripts\activate
-# macOS/Linux
+**macOS/Linux**
 source venv/bin/activate
 
 3.  **Install dependencies:**
