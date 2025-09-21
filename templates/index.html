@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Expense Tracker</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <h1>Personal Expense Tracker</h1>
+
+    <!-- Expense Form -->
+    <form action="/add" method="POST" class="expense-form">
+      <input type="text" name="title" placeholder="Expense Title" required />
+      <input
+        type="number"
+        step="0.01"
+        name="amount"
+        placeholder="Amount"
+        required
+      />
+      <input type="text" name="category" placeholder="Category" required />
+      <input type="date" name="date" required />
+      <button type="submit">Add Expense</button>
+    </form>
+
+    <!-- Expense Table -->
+    <h2>All Expenses</h2>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+      {% if expenses %} {% for exp in expenses %}
+      <tr>
+        <td>{{ exp.title }}</td>
+        <td>{{ exp.amount }}</td>
+        <td>{{ exp.category }}</td>
+        <td>{{ exp.date.strftime('%Y-%m-%d') }}</td>
+        <td><a href="/delete/{{ exp.id }}">Delete</a></td>
+      </tr>
+      {% endfor %} {% else %}
+      <tr>
+        <td colspan="5" style="text-align: center">No expenses added yet.</td>
+      </tr>
+      {% endif %}
+    </table>
+
+    <!-- Expense Chart -->
+    <h2>Expenses by Category</h2>
+    <canvas id="expenseChart" width="400" height="200"></canvas>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>
